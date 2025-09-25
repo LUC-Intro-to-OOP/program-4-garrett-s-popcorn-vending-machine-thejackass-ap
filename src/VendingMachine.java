@@ -36,10 +36,10 @@ public class VendingMachine {
     public static void main(String[] args) throws Exception {
       
     String[][] names = {
-        {"Garret Mix", "Pecan Caramel Crisp", "Plain"},
-        {"Caramel Crisp", "Cashew Caramel Crisp", "Buttery"},
-        {"Cheese Corn", "Almond Caramel Crisp", "Sweet Corn"}
-    };
+        {"Garrett Mix        ", "   Pecan Carmel Crisp   ", " Plain         "},
+        {"Caramel Crisp      ", "   Cashew Carmel Crisp  ", " Buttery       "},
+        {"Cheese Corn        ", "   Almond Carmel Crisp  ", " Sweet Corn    "}
+        };
 
     double[][] prices = {
         {14.99, 10.99, 6.99},
@@ -53,11 +53,21 @@ public class VendingMachine {
 
     Scanner scn = new Scanner(System.in);
 
-    System.out.println("Welcome to the Garrett's Popcorn Vending Machine!");
 
     while (row != -1) {
 
-        System.out.println();
+        System.out.println("\nWelcome to the Garrett's Popcorn Vending Machine!\n");
+        System.out.println("Row   Column P              Column N              Column R");
+        
+        for (int i = 0; i < products.length; i++) {
+            System.out.println(i + "\t" + products[i][0] + "\t\t" + products[i][1] + "\t\t" + products[i][2]); 
+        }
+        System.out.println("Listed above are items you can select.");
+
+        System.out.println("Please enter row of desired product or enter -1 to EXIT: ");
+        row = Integer.parseInt(scn.nextLine());
+
+        if 
 
 
 
