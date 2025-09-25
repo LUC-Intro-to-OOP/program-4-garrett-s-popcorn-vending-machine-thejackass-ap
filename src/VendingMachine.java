@@ -35,7 +35,7 @@ import java.util.Scanner; //Import the Scanner Class
 public class VendingMachine {
     public static void main(String[] args) throws Exception {
       
-    String[][] names = {
+    String[][] products = {
         {"Garrett Mix        ", "   Pecan Carmel Crisp   ", " Plain         "},
         {"Caramel Crisp      ", "   Cashew Carmel Crisp  ", " Buttery       "},
         {"Cheese Corn        ", "   Almond Carmel Crisp  ", " Sweet Corn    "}
@@ -56,9 +56,10 @@ public class VendingMachine {
 
     while (row != -1) {
 
-        System.out.println("\nWelcome to the Garrett's Popcorn Vending Machine!\n");
+        System.out.println("Welcome to the Garrett's Popcorn Vending Machine!");
+        System.out.println();      
         System.out.println("Row   Column P              Column N              Column R");
-        
+
         for (int i = 0; i < products.length; i++) {
             System.out.println(i + "\t" + products[i][0] + "\t\t" + products[i][1] + "\t\t" + products[i][2]); 
         }
@@ -69,17 +70,13 @@ public class VendingMachine {
 
         if 
 
-
-
-
-
-        while (row!= != -1 && (row < 0 || row > 2)) {
-            System.out.print("Invalid Entry, Please enter row of desired product: ");
-            row = Integer.parseInt(scn.nextLine());
+        
         }
+
+        System.out.println("\nSummary of Items Purchased");
+        System.out.println("*****************************");
+        System.out.println(totalItems + " items purchased for a total cost of $" + totalCost);
+        System.out.println("*****************************");
     }
-    
+}//END OF MAIN
 
-    }//END OF MAIN
-
-}
