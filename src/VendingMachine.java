@@ -34,8 +34,41 @@ The .gif below show three iterations of running the program
 import java.util.Scanner; //Import the Scanner Class
 public class VendingMachine {
     public static void main(String[] args) throws Exception {
-     
-//poop
+      
+    String[][] names = {
+        {"Garret Mix", "Pecan Caramel Crisp", "Plain"},
+        {"Caramel Crisp", "Cashew Caramel Crisp", "Buttery"},
+        {"Cheese Corn", "Almond Caramel Crisp", "Sweet Corn"}
+    };
+
+    double[][] prices = {
+        {14.99, 10.99, 6.99},
+        {16.99, 9.99, 8.99},
+        {12.99, 11.99, 7.99}
+    };
+
+    int totalItems = 0;
+    double totalCost = 0.0;
+    int row = 0;
+
+    Scanner scn = new Scanner(System.in);
+
+    System.out.println("Welcome to the Garrett's Popcorn Vending Machine!");
+
+    while (row != -1) {
+
+        System.out.println();
+
+
+
+
+
+        while (row!= != -1 && (row < 0 || row > 2)) {
+            System.out.print("Invalid Entry, Please enter row of desired product: ");
+            row = Integer.parseInt(scn.nextLine());
+        }
+    }
+    
 
     }//END OF MAIN
 
