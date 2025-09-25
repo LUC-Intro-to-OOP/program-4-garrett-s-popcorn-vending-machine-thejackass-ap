@@ -36,9 +36,9 @@ public class VendingMachine {
     public static void main(String[] args) throws Exception {
       
     String[][] products = {
-        {"Garrett Mix        ", "   Pecan Carmel Crisp   ", " Plain         "},
-        {"Caramel Crisp      ", "   Cashew Carmel Crisp  ", " Buttery       "},
-        {"Cheese Corn        ", "   Almond Carmel Crisp  ", " Sweet Corn    "}
+        {"Garrett Mix  ", "Pecan Carmel Crisp", "Plain    "},
+        {"Caramel Crisp", "Cashew Carmel Crisp", "Buttery       "},
+        {"Cheese Corn  ", "Almond Carmel Crisp", "Sweet Corn    "}
         };
 
     double[][] prices = {
@@ -50,30 +50,62 @@ public class VendingMachine {
     int totalItems = 0;
     double totalCost = 0.0;
     int row = 0;
+    String column;
+    int col = -1;
 
     Scanner scn = new Scanner(System.in);
+    System.out.println("Welcome to the Garrett's Popcorn Vending Machine!");
 
 
-    while (row != -1) {
-
-        System.out.println("Welcome to the Garrett's Popcorn Vending Machine!");
+    while (row != -1) {    
         System.out.println();      
-        System.out.println("Row   Column P              Column N              Column R");
-
-        for (int i = 0; i < products.length; i++) {
-            System.out.println(i + "\t" + products[i][0] + "\t\t" + products[i][1] + "\t\t" + products[i][2]); 
-        }
+        System.out.println("Row\tColumn P\t\tColumn N\t\t\tColumn R");
+        System.out.println("0\t" + products[0][0] + "\t\t" + products[0][1] + "\t\t" + products[0][2]);
+        System.out.println("1\t" + products[1][0] + "\t\t" + products[1][1] + "\t\t" + products[1][2]);
+        System.out.println("2\t" + products[2][0] + "\t\t" + products[2][1] + "\t\t" + products[2][2]);
         System.out.println("Listed above are items you can select.");
 
-        System.out.println("Please enter row of desired product or enter -1 to EXIT: ");
+            // ask for row (sentinel = -1)
+        System.out.print("Please enter row of desired product or -1 to EXIT : ");
         row = Integer.parseInt(scn.nextLine());
 
-        if 
+            // validate row (only 0,1,2 or -1)
+        while (row != -1 && (row < 0 || row > 2)) {
+            System.out.print("Invalid Entry, Please enter row of desired product: ");
+            row = Integer.parseInt(scn.nextLine());
+            }
+
+            // if not exiting, ask for column
+        if (row != -1) {
+            System.out.print("Please enter column of desired product: ");
+            column = scn.nextLine(); // expect capital P/N/R
 
         
+            if (column.equals("P")) col = 0;
+            else if (column.equals("N")) col = 1;
+            else if (column.equals("R")) col = 2;
+
+                // validate column until it’s P, N, or R
+            while (col == -1) {
+                System.out.print("Invalid Entry, Please enter either capital P, N or R of desired product: ");
+                column = scn.nextLine();
+                if (column.equals("P")) col = 0;
+                else if (column.equals("N")) col = 1;
+                else if (column.equals("R")) col = 2;
+            }
+
+                // valid selection → show and tally
+            String itemName = products[row][col];
+            double price = prices[row][col];
+            System.out.println("You enter selected " + itemName + " for a price of " + price);
+
+            totalItems = totalItems + 1;
+            totalCost  = totalCost  + price;
+            }
         }
 
-        System.out.println("\nSummary of Items Purchased");
+        System.out.println();
+        System.out.println("Summary of Items Purchased");
         System.out.println("*****************************");
         System.out.println(totalItems + " items purchased for a total cost of $" + totalCost);
         System.out.println("*****************************");
